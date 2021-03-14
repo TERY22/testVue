@@ -6,7 +6,11 @@
         <router-link to="/dashboard">Main</router-link>
       </li>
       <li>
-        <router-link to="/mail">Mail</router-link>
+        <router-link to="/mail" custom v-slot="{ navigate, href}">
+          <a href="#" @click="navigate" :class="{
+            active: $route.path.indexOf(href) !== -1
+          }">Mail</a>
+        </router-link>
       </li>
       <li><a href="#" @click.prevent="logout">LogOUT</a></li>
     </ul>
